@@ -1,0 +1,70 @@
+<div class="kanban-container">
+  <!-- Barre de recherche -->
+  <div class="search-container">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Rechercher</mat-label>
+      <input matInput [formControl]="searchControl" placeholder="Rechercher une tâche...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="kanban-columns">
+    <!-- Colonne des tâches à faire -->
+    <div class="kanban-column">
+      <div class="column-header">
+        <h2>À faire</h2>
+        <mat-chip color="primary">{{ (incompleteTodosFiltered$ | async)?.length || 0 }}</mat-chip>
+      </div>
+
+      <ng-container *ngIf="(incompleteTodosFiltered$ | async) as incompleteTodos">
+        <div
+          cdkDropList
+          #todoList="cdkDropList"
+          [cdkDropListData]="incompleteTodos"
+          [cdkDropListConnectedTo]="[doneList]"
+          (cdkDropListDropped)="drop($event)"
+          class="kanban-list">
+          <div *ngIf="incompleteTodos.length === 0" class="empty-list">
+            <p>Aucune tâche à faire</p>
+          </div>
+          <app-todo-item
+            *ngFor="let todo of incompleteTodos"
+            [todo]="todo"
+            (deleted)="deleteTodo(todo)"
+            cdkDrag
+            class="kanban-item">
+          </app-todo-item>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Colonne des tâches terminées -->
+    <div class="kanban-column">
+      <div class="column-header">
+        <h2>Terminées</h2>
+        <mat-chip color="accent">{{ (completedTodosFiltered$ | async)?.length || 0 }}</mat-chip>
+      </div>
+
+      <ng-container *ngIf="(completedTodosFiltered$ | async) as completedTodos">
+        <div
+          cdkDropList
+          #doneList="cdkDropList"
+          [cdkDropListData]="completedTodos"
+          [cdkDropListConnectedTo]="[todoList]"
+          (cdkDropListDropped)="drop($event)"
+          class="kanban-list">
+          <div *ngIf="completedTodos.length === 0" class="empty-list">
+            <p>Aucune tâche terminée</p>
+          </div>
+          <app-todo-item
+            *ngFor="let todo of completedTodos"
+            [todo]="todo"
+            (deleted)="deleteTodo(todo)"
+            cdkDrag
+            class="kanban-item">
+          </app-todo-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

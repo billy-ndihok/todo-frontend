@@ -1,0 +1,38 @@
+<mat-card class="todo-card" [class.completed]="todo.completed">
+  <div class="todo-card-content">
+    <div class="todo-card-main">
+      <h3 class="todo-title">{{ todo.title }}</h3>
+      <p *ngIf="todo.description" class="todo-description">{{ todo.description }}</p>
+    </div>
+
+    <div class="todo-card-actions">
+      <button
+        mat-icon-button
+        color="primary"
+        matTooltip="Modifier"
+        (click)="editTodo()">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        [color]="todo.completed ? 'accent' : 'primary'"
+        [matTooltip]="todo.completed ? 'Marquer comme à faire' : 'Marquer comme terminée'"
+        (click)="toggleStatus()">
+        <mat-icon>{{ todo.completed ? 'undo' : 'check' }}</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        color="warn"
+        matTooltip="Supprimer"
+        (click)="deleteTodo()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-card-footer *ngIf="todo.createdAt" class="todo-card-footer">
+    <small>Créé le {{ todo.createdAt | date:'dd/MM/yyyy' }}</small>
+  </mat-card-footer>
+</mat-card>
