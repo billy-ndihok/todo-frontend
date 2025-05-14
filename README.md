@@ -26,8 +26,8 @@ Une application moderne de gestion de tâches (Todo List) avec une interface Kan
 
 1. Clonez ce dépôt :
    ```bash
-   git clone https://github.com/votre-username/todo-kanban-app.git
-   cd todo-kanban-app
+   git clone https://github.com/billy-ndihok/todo-frontend.git
+   cd todo-frontend
    ```
 
 2. Installez les dépendances :
