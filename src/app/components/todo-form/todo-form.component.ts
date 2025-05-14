@@ -5,7 +5,6 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/materia
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/todo.model';
 import { AutoFocusDirective } from '../../directives/auto-focus.directive';
@@ -21,7 +20,6 @@ import { NotificationService } from '../../services/notification.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCheckboxModule,
     AutoFocusDirective
   ],
   templateUrl: './todo-form.component.html',
