@@ -1,8 +1,8 @@
 # Todo Kanban App - Application de gestion de tâches
 
-![Angular](https://img.shields.io/badge/Angular-18.0.0-dd0031.svg)
-![Material](https://img.shields.io/badge/Angular%20Material-18.0.0-3f51b5.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.4.2-007acc.svg)
+![Angular](https://img.shields.io/badge/Angular-18.2.0-dd0031.svg)
+![Material](https://img.shields.io/badge/Angular%20Material-18.2.14-3f51b5.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.5.2-007acc.svg)
 ![RxJS](https://img.shields.io/badge/RxJS-7.8.0-c2185b.svg)
 
 Une application moderne de gestion de tâches (Todo List) avec une interface Kanban, développée avec Angular 18 et Angular Material. L'application permet de créer, éditer, déplacer et supprimer des tâches entre deux colonnes : "À faire" et "Terminées".
